@@ -1,6 +1,5 @@
 <script>
 	export let name;
-	console.log(sex);
 
 	let age = 1 + "岁";
 	export let sex = "男";
@@ -26,9 +25,7 @@
 		max-width: 240px;
 		margin: 0 auto;
 	}
-	video {
-		max-width: 100%;
-	}
+
 	h1 {
 		color: #ff3e00;
 		text-transform: uppercase;

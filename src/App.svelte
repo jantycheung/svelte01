@@ -7,6 +7,7 @@
 	<h1>Hello {name}!</h1>
 	<h2>age = {age}</h2>
 	<p>Visit the to learn how to build Svelte apps.</p>
+	<video src="./static/video/webm.webm" />
 </main>
 
 <style>

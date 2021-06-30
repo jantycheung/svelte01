@@ -6,9 +6,8 @@
 <main>
 	
 	<div>
-	
-		<img src="../static/images/a1.png" alt="" />
-		<img src="../static/images/a2.png" alt="" />
+		<img src="../static/images/b1.png" alt="" />
+		<img src="../static/images/b2.png" alt="" />
 	</div>
 	
 </main>

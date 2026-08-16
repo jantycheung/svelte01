@@ -1,0 +1,1760 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>广西南丹 · 4天3晚深度游策划书</title>
+
+    <!-- 字体与图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* ========== 全局重置 ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f3f5f9;
+            color: #1e293b;
+            padding: 24px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ========== 头部 ========== */
+        .hero {
+            background: linear-gradient(135deg, #0b2b3f 0%, #1a4a5f 100%);
+            color: #fff;
+            border-radius: 24px;
+            padding: 40px 44px;
+            margin-bottom: 32px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hero-left h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-left .sub {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 18px 28px;
+            flex-wrap: wrap;
+        }
+
+        .hero-left .sub i {
+            margin-right: 6px;
+        }
+
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+            padding: 12px 24px;
+            border-radius: 100px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .hero-badge .number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+            line-height: 1.2;
+            order: 2;
+        }
+
+        .hero-badge .label {
+            font-size: 0.85rem;
+            opacity: 0.75;
+            order: 1;
+        }
+
+        /* ========== 行程概览 ========== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin-bottom: 8px;
+        }
+
+        .stat-item {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 16px 8px;
+            text-align: center;
+            border: 1px solid #eef2f6;
+        }
+
+        .stat-item .num {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0b2b3f;
+        }
+
+        .stat-item .desc {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        /* ========== 日期轮播（外层） ========== */
+        .day-carousel-wrapper {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            background: transparent;
+            margin-bottom: 28px;
+            touch-action: pan-y;
+        }
+
+        .day-carousel-slides {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+        }
+
+        .day-carousel-slide {
+            min-width: 100%;
+            padding: 0 4px;
+        }
+
+        .day-carousel-slide .card {
+            margin-bottom: 0;
+            background: #fff;
+            padding: 5px 20px 20px;
+            border-radius: 20px;
+        }
+
+        /* 日期轮播控制按钮 - 默认显示（移动端） */
+        .day-carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(6px);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            width: 44px;
+            height: 44px;
+            border-radius: 100px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background 0.2s;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .day-carousel-btn:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .day-carousel-btn.prev {
+            left: 12px;
+        }
+
+        .day-carousel-btn.next {
+            right: 12px;
+        }
+
+        .day-carousel-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 20;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(4px);
+            padding: 6px 16px;
+            border-radius: 100px;
+        }
+
+        .day-carousel-dots span {
+            width: 12px;
+            height: 12px;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .day-carousel-dots span.active {
+            background: #fff;
+            transform: scale(1.3);
+        }
+
+        /* ========== PC端（>960px）日期平铺 ========== */
+        @media (min-width: 961px) {
+          
+            .day-carousel-slides {
+                flex-wrap: wrap !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            .day-carousel-slide {
+                min-width: 100%;
+                flex: 0 0 100%;
+                padding: 0;
+            }
+            .day-carousel-slide .card {
+                margin-bottom: 28px;
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+            }
+            .day-carousel-btn,
+            .day-carousel-dots {
+                display: none !important;
+            }
+        }
+
+        /* ========== 每日行程时间线 ========== */
+        .day-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 0 8px 0;
+            border-bottom: 2px solid #eef2f6;
+            margin-bottom: 16px;
+        }
+
+        .day-header .day-badge {
+            background: #0b2b3f;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 4px 16px;
+            border-radius: 100px;
+            letter-spacing: 0.3px;
+        }
+
+        .day-header .day-title {
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #0b2b3f;
+        }
+
+        .day-header .day-title i {
+            margin-right: 8px;
+            color: #3b7a8c;
+        }
+
+        .timeline-item {
+            display: flex;
+            padding: 10px 0;
+            border-bottom: 1px dashed #eef2f6;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-time {
+            min-width: 100px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #1e293b;
+            background: #f1f4f9;
+            padding: 2px 12px;
+            border-radius: 100px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-content .place {
+            font-weight: 600;
+            color: #0b2b3f;
+        }
+
+        .timeline-content .action {
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        .timeline-content .action i {
+            color: #3b7a8c;
+            margin: 0 4px 0 10px;
+            width: 16px;
+        }
+
+        .timeline-content .note {
+            font-size: 0.85rem;
+            color: #64748b;
+            background: #f8fafc;
+            padding: 2px 12px;
+            border-radius: 100px;
+            display: inline-block;
+            margin-top: 2px;
+        }
+
+        .timeline-cost {
+            min-width: 70px;
+            text-align: right;
+            font-weight: 600;
+            color: #0b2b3f;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+
+        /* ========== 美食推荐 ========== */
+        .food-recommend {
+            background: #fef9e7;
+            border-radius: 16px;
+            padding: 18px 22px;
+            margin: 18px 0 16px 0;
+            border-left: 4px solid #fbbf24;
+        }
+
+        .food-recommend h4 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #78350f;
+            margin-bottom: 8px;
+        }
+
+        .food-recommend .food-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 30px;
+        }
+
+        .food-recommend .food-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .food-recommend .food-item .name {
+            font-weight: 600;
+            color: #0b2b3f;
+        }
+
+        .food-recommend .food-item .desc {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* ========== 内部媒体轮播 ========== */
+        .carousel-wrapper {
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #0b2b3f;
+            margin-top: 10px;
+            touch-action: pan-y;
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            aspect-ratio: 16/9;
+            background: #1e293b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            pointer-events: none;
+        }
+
+        .carousel-slide.video-slide {
+            background: #1e293b;
+            cursor: pointer;
+        }
+
+        .carousel-slide.video-slide .play-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.3);
+            transition: background 0.3s;
+        }
+
+        .carousel-slide.video-slide .play-overlay:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-slide.video-slide .play-overlay .play-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            font-size: 2rem;
+        }
+
+        .carousel-slide .slide-label {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(6px);
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            pointer-events: none;
+        }
+
+        .carousel-slide .slide-label i {
+            margin-right: 6px;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(6px);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            width: 44px;
+            height: 44px;
+            border-radius: 100px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background 0.2s;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .carousel-btn.prev {
+            left: 16px;
+        }
+
+        .carousel-btn.next {
+            right: 16px;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 16px;
+            right: 20px;
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .carousel-dots span {
+            width: 10px;
+            height: 10px;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .carousel-dots span.active {
+            background: #fff;
+            transform: scale(1.2);
+        }
+
+        /* ========== 图片放大灯箱（支持左右切换） ========== */
+        .image-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .image-modal.active {
+            display: flex;
+        }
+
+        .image-modal .image-modal-content {
+            max-width: 92%;
+            max-height: 82vh;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            cursor: default;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-modal .modal-label {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(6px);
+            padding: 8px 24px;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+            max-width: 80%;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .image-modal .close-image-modal {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 2.6rem;
+            color: #fff;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+            background: rgba(0, 0, 0, 0.3);
+            width: 56px;
+            height: 56px;
+            border-radius: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            z-index: 10;
+        }
+
+        .image-modal .close-image-modal:hover {
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* 弹窗左右切换按钮 */
+        .image-modal .modal-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(6px);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            width: 52px;
+            height: 52px;
+            border-radius: 100px;
+            cursor: pointer;
+            font-size: 1.6rem;
+            transition: background 0.2s, transform 0.2s;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-modal .modal-nav-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .image-modal .modal-nav-btn.prev {
+            left: 30px;
+        }
+
+        .image-modal .modal-nav-btn.next {
+            right: 30px;
+        }
+
+        .image-modal .modal-counter {
+            position: absolute;
+            top: 30px;
+            left: 40px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            font-weight: 500;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 6px 16px;
+            border-radius: 100px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            pointer-events: none;
+        }
+
+        /* ========== 视频弹窗 ========== */
+        .video-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .video-modal.active {
+            display: flex;
+        }
+
+        .video-modal .modal-content {
+            max-width: 900px;
+            width: 100%;
+            background: #000;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .video-modal .modal-content iframe {
+            width: 100%;
+            aspect-ratio: 5/9;
+            border: none;
+        }
+
+        .video-modal .close-modal {
+            position: absolute;
+            top: -16px;
+            right: -16px;
+            background: #1e293b;
+            color: #fff;
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 100px;
+            font-size: 1.4rem;
+            cursor: pointer;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            transition: background 0.2s;
+        }
+
+        .video-modal .close-modal:hover {
+            background: #0b2b3f;
+        }
+
+        /* ========== 费用汇总 ========== */
+        .cost-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+        }
+
+        .cost-item {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 14px 18px;
+            border-left: 4px solid #3b7a8c;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .cost-item .label {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .cost-item .value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #0b2b3f;
+        }
+
+        .cost-total {
+            background: #0b2b3f;
+            color: #fff;
+            border-left-color: #fbbf24;
+        }
+
+        .cost-total .label {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .cost-total .value {
+            color: #fbbf24;
+        }
+
+        .notice {
+            background: #fef9e7;
+            border-left: 4px solid #fbbf24;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            color: #78350f;
+        }
+
+        .notice i {
+            margin-right: 10px;
+        }
+
+        .tag {
+            background: #eef2f6;
+            padding: 2px 14px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: #475569;
+        }
+
+        .tag i {
+            margin-right: 4px;
+        }
+
+        /* ========== 响应式 ========== */
+        @media (max-width: 960px) {
+            .hero-badge {
+                width: 100%;
+                display: flex;
+                /* align-items: center; */
+                /* justify-content: space-between; */
+                /* gap: 5px; */
+                /* flex-direction: row-reverse; */
+            }
+
+            .timeline-item {
+                flex-wrap: wrap;
+            }
+
+            .timeline-content {
+                width: 100%;
+                flex: auto;
+                order: 3;
+            }
+
+            .timeline-cost {
+                width: calc(100% - 70% - 12px);
+                order: 2;
+                text-align: left;
+            }
+
+            .day-header {
+                flex-wrap: wrap;
+            }
+
+            .day-title {
+                width: 100%;
+                order: 3;
+            }
+
+            .day-carousel-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+
+            .image-modal .modal-nav-btn {
+                width: 42px;
+                height: 42px;
+                font-size: 1.2rem;
+            }
+
+            .image-modal .modal-nav-btn.prev {
+                left: 16px;
+            }
+
+            .image-modal .modal-nav-btn.next {
+                right: 16px;
+            }
+
+            .image-modal .modal-counter {
+                top: 20px;
+                left: 20px;
+                font-size: 0.8rem;
+                padding: 4px 12px;
+            }
+
+            .image-modal .close-image-modal {
+                top: 20px;
+                right: 20px;
+                width: 44px;
+                height: 44px;
+                font-size: 2rem;
+            }
+
+            .image-modal .modal-label {
+                bottom: 20px;
+                font-size: 0.8rem;
+                padding: 6px 16px;
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body{
+             padding: 10px;   
+            }
+            .hero {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+                padding: 28px 24px;
+            }
+
+            .hero-left h1 {
+                font-size: 1.6rem;
+            }
+
+            .card {
+                padding: 20px 16px;
+                background: #fff;
+                border-radius: 10px;
+            }
+
+            .timeline-time {
+                min-width: 110px;
+                font-size: 0.8rem;
+            }
+
+            .timeline-cost {
+                min-width: 60px;
+                font-size: 0.85rem;
+                text-align: left;
+            }
+
+            .carousel-btn {
+                width: 34px;
+                height: 34px;
+                font-size: 0.9rem;
+            }
+
+            .cost-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero-badge .number {
+                font-size: 1.5rem;
+                order: 2;
+            }
+
+            .food-recommend .food-list {
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .day-carousel-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 0.8rem;
+            }
+
+            .day-carousel-dots {
+                padding: 4px 12px;
+                gap: 8px;
+                bottom: 12px;
+            }
+
+            .day-carousel-dots span {
+                width: 10px;
+                height: 10px;
+            }
+
+            .image-modal .modal-nav-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+
+            .image-modal .modal-nav-btn.prev {
+                left: 10px;
+            }
+
+            .image-modal .modal-nav-btn.next {
+                right: 10px;
+            }
+
+            .image-modal .close-image-modal {
+                top: 16px;
+                right: 16px;
+                width: 38px;
+                height: 38px;
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cost-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            .image-modal .modal-nav-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 0.8rem;
+            }
+
+            .image-modal .modal-label {
+                font-size: 0.7rem;
+                padding: 4px 12px;
+                bottom: 14px;
+            }
+
+            .image-modal .modal-counter {
+                font-size: 0.7rem;
+                padding: 3px 10px;
+                top: 14px;
+                left: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- ==================== 头部 ==================== -->
+        <header class="hero">
+            <div class="hero-left">
+                <h1>🌿 广西南丹 · 秘境4日</h1>
+                <div class="sub">
+                    <span><i class="fas fa-calendar-alt"></i> 4天3晚</span>
+                    <span><i class="fas fa-users"></i> 15人团队</span>
+                    <span><i class="fas fa-bus"></i> 20座</span>
+                    <span><i class="fas fa-route"></i> 约850 km</span>
+                </div>
+            </div>
+            <div class="hero-badge">
+                <span class="number">¥2,351</span>
+                <span class="label">人均预算</span>
+            </div>
+        </header>
+
+        <!-- ==================== 行程概览 ==================== -->
+        <section class="card" style="margin-bottom:28px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:16px;">
+                <h2 style="font-size:1.25rem; font-weight:600;"><i class="fas fa-map-pin" style="color:#3b7a8c; margin-right:10px;"></i>行程总览</h2>
+                <span class="tag"><i class="fas fa-train"></i> 广州 ⇄ 南宁东</span>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item"><span class="num">4</span><div class="desc">游玩天数</div></div>
+                <div class="stat-item"><span class="num">3</span><div class="desc">住宿晚数</div></div>
+                <div class="stat-item"><span class="num">7</span><div class="desc">核心景点</div></div>
+                <div class="stat-item"><span class="num">850</span><div class="desc">包车里程 (km)</div></div>
+                <div class="stat-item"><span class="num">15</span><div class="desc">团队人数</div></div>
+            </div>
+            <div class="notice" style="margin-top:14px;">
+                <i class="fas fa-lightbulb"></i> <strong>行程亮点：</strong> 都安响水关玩水 · 丹炉山溪降探险 · 天峨蓝刀鱼观赏 · 越野摩托体验 · 地道广西美食
+            </div>
+        </section>
+
+        <!-- ==================== 日期轮播（外层） ==================== -->
+        <div class="day-carousel-wrapper" id="dayCarousel">
+            <div class="day-carousel-slides" id="daySlides">
+
+                <!-- ========== DAY 1 ========== -->
+                <div class="day-carousel-slide">
+                    <div class="card">
+                        <div class="day-header">
+                            <span class="day-badge">DAY 1</span>
+                            <span class="day-title"><i class="fas fa-sun"></i> 广州 → 南宁 → 都安 → 金城江</span>
+                            <span style="margin-left:auto; font-size:0.85rem; color:#64748b;"><i class="fas fa-hotel"></i> 入住金城江</span>
+                        </div>
+                        <div class="day-timeline">
+                            <div class="timeline-item">
+                                <span class="timeline-time">07:56 – 10:45</span>
+                                <div class="timeline-content">
+                                    <span class="place">广州南 → 南宁东</span>
+                                    <span class="action"><i class="fas fa-train"></i> 动车 D592 · 3h</span>
+                                </div>
+                                <span class="timeline-cost">¥225</span>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-time">11:15 – 11:30</span>
+                                <div class="timeline-content">
+                                    <span class="place">南宁老牌粉得老友粉 (凤岭北店)</span>
+                                    <span class="action"><i class="fas fa-utensils"></i> 当地特色老友粉</span>
+                                </div>
+                                <span class="timeline-cost">¥30</span>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-time">12:30 – 14:30</span>
+                                <div class="timeline-content">
+                                    <span class="place">都安 · 响水关</span>
+                                    <span class="action"><i class="fas fa-water"></i> 玩水 · 游船 · 爬山</span>
+                                    <span class="note">河边玩水 &amp; 登山免费，游船自费</span>
+                                </div>
+                                <span class="timeline-cost">¥30</span>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-time">17:30 – 19:00</span>
+                                <div class="timeline-content">
+                                    <span class="place">金城江区</span>
+                                    <span class="action"><i class="fas fa-bed"></i> 入住酒店</span>
+                                </div>
+                                <span class="timeline-cost">¥100</span>
+                            </div>
+                        </div>
+
+                        <div class="food-recommend">
+                            <h4><i class="fas fa-utensil-spoon"></i> 今日特色美食推荐</h4>
+                            <div class="food-list">
+                                <span class="food-item"><span class="name">🍜 南宁老友粉</span> <span class="desc">酸辣开胃，南宁必吃</span></span>
+                                <span class="food-item"><span class="name">🥘 都安酸嘢</span> <span class="desc">水果腌制，脆爽解腻</span></span>
+                                <span class="food-item"><span class="name">🍖 金城江烤鱼</span> <span class="desc">炭火烤制，香辣入味</span></span>
+                            </div>
+                        </div>
+
+                        <div class="carousel-wrapper" data-carousel>
+                            <div class="carousel-slides">
+                                <div class="carousel-slide">
+                                    <img src="https://ts1.tc.mm.bing.net/th/id/R-C.c11ba9aabfdeb7774580150fbe7753b8?rik=30OtQg1ma%2bvzxA&riu=http%3a%2f%2f5b0988e595225.cdn.sohucs.com%2fimages%2f20171227%2f64842dcb37484dd9b6e5a79f0746d5ec.jpeg&ehk=6vojAiJ4Yl6%2bIesvK0nD2rTSCPCqiLwvZqvIv9tsePc%3d&risl=&pid=ImgRaw&r=0" alt="响水关" loading="lazy" />
+                                    <span class="slide-label"><i class="fas fa-image"></i> 都安 · 响水关-1</span>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://gips3.baidu.com/it/u=952085108,501400386&fm=3074&app=3074&f=JPEG" alt="" loading="lazy" />
+                                    <span class="slide-label"><i class="fas fa-image"></i> 都安 · 响水关-2</span>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://pic.rmb.bdstatic.com/bjh/other/c1b96f6d05ee99c795379e598acb7613.png?for=bg" alt="" loading="lazy" />
+                                    <span class="slide-label"><i class="fas fa-image"></i> 都安 · 响水关-3</span>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://se-feed-bucket.bj.bcebos.com/produce-record120215016_3/first_1767205020" alt="" loading="lazy" />
+                                    <span class="slide-label"><i class="fas fa-image"></i> 都安 · 响水关-4</span>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://miaobi-lite.bj.bcebos.com/miaobi/5mao/b%275Y2X5a6B5ZOq5Liq5YWs5Zut5Lq65bCRXzE3MzIzOTk3NjkuNjE5NzI5OF8xNzMyMzk5NzcwLjY0MzI1MjQ%3D%27/1.png" alt="" loading="lazy" />
+                                    <span class="slide-label"><i class="fas fa-image"></i> 都安 · 响水关-5</span>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://gips1.baidu.com/it/u=3791188541,17724262&fm=3074&app=3074&f=JPEG" alt="老友粉" loading="lazy" />
+                                    <span class="slide-label"><i class="fas fa-utensils"></i> 南宁老友粉-1</span>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://gips3.baidu.com/it/u=3916318215,3012608028&fm=3074&app=3074&f=JPEG" alt="" loading="lazy" />
+                                    <span class="slide-label"><i class="fas fa-utensils"></i> 南宁老友粉-2</span>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://img2.baidu.com/it/u=2805285586,3099713572&fm=253&app=138&f=JPEG?w=800&h=1067" alt="酸嘢" loading="lazy" />
+                                    <span class="slide-label"><i class="fas fa-utensils"></i> 酸嘢-1</span>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://img2.baidu.com/it/u=2965578056,785364974&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=1067" alt="酸嘢" loading="lazy" />
+                                    <span class="slide-label"><i class="fas fa-utensils"></i> 酸嘢-2</span>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://n.sinaimg.cn/sinakd20118/731/w999h1332/20230306/832b-c043b9b2a7142c46d88bbce7f6617711.jpg" alt="酸嘢" loading="lazy" />
+                                    <span class="slide-label"><i class="fas fa-utensils"></i> 酸嘢-3</span>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://qcloud.dpfile.com/pc/Nl_oaEeTTPG7jUPignzMaOBHg56FzO7qNH7lG_yhJolGEzAPPptLTCRa2KhFCT1UNZvK3RMEnSZusP-oHmeixOpEuctC7NDQ04iV_zcg7BUYPeq-iX-oD-RLc_uA0GHhp6cjSpPcu-UE8TQHZIi94A.jpg" alt="烤鱼" loading="lazy" />
+                                    <span class="slide-label"><i class="fas fa-utensils"></i> 金城江烤鱼</span>
+                                </div>
+                            </div>
+                            <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+                            <div class="carousel-dots"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== DAY 2 ========== -->
+                <div class="day-carousel-slide">
+                    <div class="card">
+                        <div class="day-header">
+                            <span class="day-badge">DAY 2</span>
+                            <span class="day-title"><i class="fas fa-mountain"></i> 金城江 → 丹炉山 · 溪降 → 南丹</span>
+                            <span style="margin-left:auto; font-size:0.85rem; color:#64748b;"><i class="fas fa-hotel"></i> 入住南丹 (连住2晚)</span>
+                        </div>
+                        <div class="day-timeline">
+                            <div class="timeline-item">
+                                <span class="timeline-time">09:00 – 11:00</span>
+                                <div class="timeline-content">
+                                    <span class="place">丹炉山景区 · 售票处</span>
+                                    <span class="action"><i class="fas fa-ticket-alt"></i> 换票 / 团队入园</span>
+                                    <span class="note">不玩溪降可走A/B线路</span>
+                                </div>
+                                <span class="timeline-cost">—</span>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-time">11:10 – 11:40</span>
+                                <div class="timeline-content">
+                                    <span class="place">仙塘溪降 · 起点</span>
+                                    <span class="action"><i class="fas fa-shuttle-van"></i> 观光车 (乡间小路)</span>
+                                </div>
+                                <span class="timeline-cost">—</span>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-time">12:00 – 16:00</span>
+                                <div class="timeline-content">
+                                    <span class="place">仙塘溪降 · 溪降体验</span>
+                                    <span class="action"><i class="fas fa-hiking"></i> 全程约4小时</span>
+                                    <span class="note">抖音直播间 ¥158 / 团购价 ¥188</span>
+                                </div>
+                                <span class="timeline-cost">¥188</span>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-time">16:00 – 16:30</span>
+                                <div class="timeline-content">
+                                    <span class="place">丹炉山景区 · 售票处</span>
+                                    <span class="action"><i class="fas fa-shuttle-van"></i> 观光车返回</span>
+                                </div>
+                                <span class="timeline-cost">—</span>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-time">17:00 – 18:30</span>
+                                <div class="timeline-content">
+                                    <span class="place">南丹县城</span>
+                                    <span class="action"><i class="fas fa-bed"></i> 入住酒店 (连住两晚)</span>
+                                </div>
+                                <span class="timeline-cost">¥100</span>
+                            </div>
+                        </div>
+
+                        <div class="food-recommend">
+                            <h4><i class="fas fa-utensil-spoon"></i> 今日特色美食推荐</h4>
+                            <div class="food-list">
+                                <span class="food-item"><span class="name">🍲 南丹土鸡</span> <span class="desc">山地放养，肉质紧实</span></span>
+                                <span class="food-item"><span class="name">🌿 瑶族油茶</span> <span class="desc">驱寒暖胃，特色小吃</span></span>
+                                <span class="food-item"><span class="name">🫘 丹炉山豆腐</span> <span class="desc">山泉水制作，豆香浓郁</span></span>
+                            </div>
+                        </div>
+
+                        <div class="carousel-wrapper" data-carousel>
+                            <div class="carousel-slides">
+                                <div class="carousel-slide">
+                                    <img src="https://se-feed-bucket.bj.bcebos.com/produce-record123161675_8/first_1769837628" alt="丹炉山" loading="lazy" />
+                                    <span class="slide-label"><i class="fas fa-image"></i> 丹炉山景区-1</span>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://se-feed-bucket.bj.bcebos.com/map_uigc_route/2154ecb2eefcf8bd9fec542b8e33dc5f.jpg" alt="丹炉山" loading="lazy" />
+                                    <span class="slide-label"><i class="fas fa-image"></i> 丹炉山景区-2</span>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://n.sinaimg.cn/spider20250725/178/w640h1138/20250725/1254-aff75a5bc276c4722ee184d3c058d51f.jpg" alt="溪降" loading="lazy" />
+                                    <span class="slide-label"><i class="fas fa-image"></i> 仙塘溪降-1</span>
+                                </div>
+                              
+                                
+
+                                <div class="carousel-slide video-slide" data-video="https://www.bilibili.com/video/BV1A4KK6rEsy?t=1.5">
+                                    <div class="play-overlay" style="background: url(https://p3-pc-sign.douyinpic.com/tos-cn-p-0015/oIiE03eAEAAf8IOJEzGgK2vbDBi1JGRBIGGy5x~tplv-dy-resize-origshort-autoq-75:330.jpeg?biz_tag=pcweb_cover&from=327834062&s=PackSourceEnum_SEO&sc=cover&se=false&x-expires=2039461200&x-signature=cq96%2BIX%2FFAtryROfB7dRau9YcIE%3D) no-repeat center / cover;">
+                                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                                    </div>
+                                    <span class="slide-label"><i class="fas fa-video"></i> 仙塘溪降-2</span>
+                                </div>
+
+                            </div>
+                            <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+                            <div class="carousel-dots"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== DAY 3 ========== -->
+                <div class="day-carousel-slide">
+                    <div class="card">
+                        <div class="day-header">
+                            <span class="day-badge">DAY 3</span>
+                            <span class="day-title"><i class="fas fa-fish"></i> 南丹 → 天峨 · 蓝刀鱼 → 南丹</span>
+                            <span style="margin-left:auto; font-size:0.85rem; color:#64748b;"><i class="fas fa-undo-alt"></i> 当日往返</span>
+                        </div>
+                        <div class="day-timeline">
+                            <div class="timeline-item">
+                                <span class="timeline-time">09:30 – 10:20</span>
+                                <div class="timeline-content">
+                                    <span class="place">南丹 → 天峨县</span>
+                                    <span class="action"><i class="fas fa-road"></i> 高速 · 约63 km</span>
+                                </div>
+                                <span class="timeline-cost">¥100</span>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-time">11:00 – 16:00</span>
+                                <div class="timeline-content">
+                                    <span class="place">天峨 · 蓝刀鱼体验</span>
+                                    <span class="action"><i class="fas fa-swimmer"></i> 登山望 · 划桨 · 喂鱼观赏</span>
+                                    <span class="note">可自行安排登山、下水划桨</span>
+                                </div>
+                                <span class="timeline-cost">¥100</span>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-time">17:00 – 18:20</span>
+                                <div class="timeline-content">
+                                    <span class="place">天峨 → 南丹</span>
+                                    <span class="action"><i class="fas fa-road"></i> 高速返回酒店</span>
+                                </div>
+                                <span class="timeline-cost">¥100</span>
+                            </div>
+                        </div>
+
+                        <div class="food-recommend">
+                            <h4><i class="fas fa-utensil-spoon"></i> 今日特色美食推荐</h4>
+                            <div class="food-list">
+                                <span class="food-item"><span class="name">🐟 天峨蓝刀鱼</span> <span class="desc">现捞现做，鲜嫩清甜</span></span>
+                                <span class="food-item"><span class="name">🍚 五色糯米饭</span> <span class="desc">壮族传统，色彩缤纷</span></span>
+                                <span class="food-item"><span class="name">🌽 玉米糍粑</span> <span class="desc">软糯香甜，当地特色</span></span>
+                            </div>
+                        </div>
+
+                        <div class="carousel-wrapper" data-carousel>
+                            <div class="carousel-slides">
+                                <div class="carousel-slide">
+                                    <img src="https://boot-img.xuexi.cn/image/1006/process/b5e3a02d382649ff8565323f48320b36.jpg" alt="广西龙滩峡谷" loading="lazy" />
+                                    <span class="slide-label"><i class="fas fa-image"></i> 广西龙滩峡谷-1</span>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://boot-img.xuexi.cn/image/1006/process/d89c36e562f6429e9772431928b55a41.jpg" alt="广西龙滩峡谷" loading="lazy" />
+                                    <span class="slide-label"><i class="fas fa-image"></i> 广西龙滩峡谷-2</span>
+                                </div>
+                          
+
+                                <div class="carousel-slide">
+                                    <img src="https://img2.baidu.com/it/u=3912218560,3407422366&fm=253&app=138&f=JPEG?w=800&h=1067" alt="五色糯米饭" loading="lazy" />
+                                    <span class="slide-label"><i class="fas fa-utensils"></i> 五色糯米饭</span>
+                                </div>
+                                <div class="carousel-slide video-slide" data-video="https://www.bilibili.com/video/BV1cwY7zQE8P?t=0.1">
+                                    <div class="play-overlay" style="background: url(https://p3-pc-sign.douyinpic.com/obj/tos-cn-p-0015c000-ce/oYLBoMAfv5spiEA3IKss9Z3BwiBAnDCxLXfOIF?x-expires=2094001200&x-signature=MgOeZYCY1BW3pxN3MW6Mkh%2F6IYI%3D&from=1516005123) no-repeat center / cover;">
+                                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                                    </div>
+                                    <span class="slide-label"><i class="fas fa-video"></i>天峨划桨</span>
+                                </div>
+
+                                <div class="carousel-slide video-slide" data-video="https://www.bilibili.com/video/BV1artSz1E5v?t=0.9">
+                                    <div class="play-overlay" style="background: url(https://ts1.tc.mm.bing.net/th/id/OIP-C.SlehGz8mtZMOEDMJeUe6BgHaEP?r=0&rs=1&pid=ImgDetMain&o=7&rm=3) no-repeat center / cover;">
+                                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                                    </div>
+                                    <span class="slide-label"><i class="fas fa-video"></i> 蓝刀鱼风暴</span>
+                                </div>
+                            </div>
+                            <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+                            <div class="carousel-dots"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== DAY 4 ========== -->
+                <div class="day-carousel-slide">
+                    <div class="card">
+                        <div class="day-header">
+                            <span class="day-badge">DAY 4</span>
+                            <span class="day-title"><i class="fas fa-motorcycle"></i> 南丹 → 越野摩托 → 南宁东 → 广州</span>
+                            <span style="margin-left:auto; font-size:0.85rem; color:#64748b;"><i class="fas fa-flag-checkered"></i> 返程日</span>
+                        </div>
+                        <div class="day-timeline">
+                            <div class="timeline-item">
+                                <span class="timeline-time">09:00 – 10:10</span>
+                                <div class="timeline-content">
+                                    <span class="place">丹炉山越野摩托基地</span>
+                                    <span class="action"><i class="fas fa-motorcycle"></i> 越野摩托 · 1.5h</span>
+                                    <span class="note">抖音团购 ¥268/辆 (可坐2人) → 人均¥140</span>
+                                </div>
+                                <span class="timeline-cost">¥140</span>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-time">12:30 – 16:30</span>
+                                <div class="timeline-content">
+                                    <span class="place">丹炉山 → 南宁东站</span>
+                                    <span class="action"><i class="fas fa-route"></i> 途中服务区午餐 (或金城江)</span>
+                                </div>
+                                <span class="timeline-cost">—</span>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-time">17:57 – 20:43</span>
+                                <div class="timeline-content">
+                                    <span class="place">南宁东 → 广州南</span>
+                                    <span class="action"><i class="fas fa-train"></i> 动车 D597 · 3h</span>
+                                </div>
+                                <span class="timeline-cost">¥238</span>
+                            </div>
+                        </div>
+
+                        <div class="food-recommend">
+                            <h4><i class="fas fa-utensil-spoon"></i> 今日特色美食推荐</h4>
+                            <div class="food-list">
+                                <span class="food-item"><span class="name">🥩 南丹牛肉粉</span> <span class="desc">鲜汤牛肉，米粉爽滑</span></span>
+                                <span class="food-item"><span class="name">🍢 金城江烧烤</span> <span class="desc">烟火气十足，夜宵首选</span></span>
+                                <span class="food-item"><span class="name">🍵 南宁柠檬鸭</span> <span class="desc">酸辣开胃，返程前必尝</span></span>
+                            </div>
+                        </div>
+
+                        <div class="carousel-wrapper" data-carousel>
+                            <div class="carousel-slides">
+                                <div class="carousel-slide">
+                                    <img src="https://img1.baidu.com/it/u=1400153315,1439049203&fm=253&app=138&f=JPEG?w=800&h=1422" alt="越野摩托" loading="lazy" />
+                                    <span class="slide-label"><i class="fas fa-image"></i> 越野摩托-1</span>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://img1.baidu.com/it/u=2078208055,4040861183&fm=253&app=138&f=JPEG?w=800&h=1422" alt="山地越野" loading="lazy" />
+                                    <span class="slide-label"><i class="fas fa-image"></i> 越野摩托-2</span>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="https://img1.baidu.com/it/u=1029879599,2610226467&fm=253&app=138&f=JPEG?w=800&h=1422" alt="" srcset="">
+                                    <span class="slide-label"><i class="fas fa-image"></i> 越野摩托-3</span>
+                                </div>
+                                
+
+                                <div class="carousel-slide video-slide" data-video="https://www.bilibili.com/video/BV1L14y177fZ?t=1.3">
+                                    <div class="play-overlay" style="background: url(https://img1.baidu.com/it/u=2078208055,4040861183&fm=253&app=138&f=JPEG?w=800&h=1422) no-repeat center / cover;">
+                                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                                    </div>
+                                    <span class="slide-label"><i class="fas fa-video"></i> 越野摩托体验</span>
+                                </div>
+                           
+                            </div>
+                            <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+                            <div class="carousel-dots"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 日期轮播控制按钮（移动端显示） -->
+            <button class="day-carousel-btn prev" id="dayPrev"><i class="fas fa-chevron-left"></i></button>
+            <button class="day-carousel-btn next" id="dayNext"><i class="fas fa-chevron-right"></i></button>
+            <div class="day-carousel-dots" id="dayDots"></div>
+        </div>
+
+        <!-- ====================================================================== -->
+        <!-- 费用明细 -->
+        <!-- ====================================================================== -->
+        <section class="card">
+            <h2 style="font-size:1.25rem; font-weight:600; margin-bottom:18px;">
+                <i class="fas fa-coins" style="color:#fbbf24; margin-right:10px;"></i>费用明细 · 人均
+            </h2>
+            <div class="cost-grid">
+                <div class="cost-item"><div class="label">🚄 往返动车</div><div class="value">¥463</div></div>
+                <div class="cost-item"><div class="label">🚐 包车 (4天)</div><div class="value">¥700</div></div>
+                <div class="cost-item"><div class="label">🏨 住宿 (3晚)</div><div class="value">¥300</div></div>
+                <div class="cost-item"><div class="label">🍜 餐饮 (4天)</div><div class="value">¥400</div></div>
+                <div class="cost-item"><div class="label">🎫 丹炉山溪降</div><div class="value">¥188</div></div>
+                <div class="cost-item"><div class="label">🏍️ 越野摩托</div><div class="value">¥140</div></div>
+                <div class="cost-item"><div class="label">🌊 天峨活动</div><div class="value">¥100</div></div>
+                <div class="cost-item"><div class="label">🎯 其他杂费</div><div class="value">¥60</div></div>
+                <div class="cost-item cost-total"><div class="label">💰 总计 (人均)</div><div class="value">¥2,351</div></div>
+            </div>
+            <div style="margin-top:16px; font-size:0.9rem; color:#64748b; background:#f8fafc; padding:12px 18px; border-radius:12px;">
+                <i class="fas fa-info-circle" style="color:#3b7a8c;"></i>
+                以上为参考预算，实际费用可能因季节、团购及个人消费浮动。包车费按15人分摊，含司机及油路费。
+            </div>
+        </section>
+
+        <!-- ==================== 页脚 ==================== -->
+        <footer style="text-align:center; padding:20px 0 10px; color:#94a3b8; font-size:0.85rem; border-top:1px solid #eef2f6; margin-top:8px;">
+            <i class="fas fa-map-marked-alt" style="margin-right:6px;"></i>
+            广西南丹 · 4天3晚深度游策划书 &nbsp;|&nbsp; 15人团队 &nbsp;|&nbsp; 更新于 2026年8月
+        </footer>
+
+    </div>
+
+    <!-- ==================== 图片放大灯箱（支持左右切换） ==================== -->
+    <div class="image-modal" id="imageModal">
+        <span class="close-image-modal" id="closeImageModal"><i class="fas fa-times"></i></span>
+        <button class="modal-nav-btn prev" id="modalPrev"><i class="fas fa-chevron-left"></i></button>
+        <button class="modal-nav-btn next" id="modalNext"><i class="fas fa-chevron-right"></i></button>
+        <span class="modal-counter" id="modalCounter">1 / 1</span>
+        <img class="image-modal-content" id="modalImage" src="" alt="放大图片" />
+        <span class="modal-label" id="modalLabel"></span>
+    </div>
+
+    <!-- ==================== 视频弹窗 ==================== -->
+    <div class="video-modal" id="videoModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal"><i class="fas fa-times"></i></button>
+            <iframe id="videoIframe" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- ==================== JavaScript ==================== -->
+    <script>
+        (function () {
+            // ---------- 检测是否为PC端 ----------
+            function isPC() {
+                return window.innerWidth > 960;
+            }
+
+            // ---------- 日期轮播（外层） ----------
+            const dayWrapper = document.getElementById('dayCarousel');
+            const daySlides = document.getElementById('daySlides');
+            const dayPrevBtn = document.getElementById('dayPrev');
+            const dayNextBtn = document.getElementById('dayNext');
+            const dayDotsContainer = document.getElementById('dayDots');
+            const daySlideItems = daySlides.querySelectorAll('.day-carousel-slide');
+            let dayCurrent = 0;
+            const dayTotal = daySlideItems.length;
+
+            // 生成指示点
+            dayDotsContainer.innerHTML = '';
+            for (let i = 0; i < dayTotal; i++) {
+                const dot = document.createElement('span');
+                dot.dataset.index = i;
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', function () {
+                    goToDay(parseInt(this.dataset.index));
+                });
+                dayDotsContainer.appendChild(dot);
+            }
+            const dayDots = dayDotsContainer.querySelectorAll('span');
+
+            function goToDay(index) {
+                // PC端不执行轮播
+                if (isPC()) return;
+                if (index < 0) index = dayTotal - 1;
+                if (index >= dayTotal) index = 0;
+                dayCurrent = index;
+                daySlides.style.transform = 'translateX(-' + (dayCurrent * 100) + '%)';
+                dayDots.forEach((d, i) => {
+                    d.classList.toggle('active', i === dayCurrent);
+                });
+            }
+
+            function nextDay() { goToDay(dayCurrent + 1); }
+            function prevDay() { goToDay(dayCurrent - 1); }
+
+            dayNextBtn.addEventListener('click', nextDay);
+            dayPrevBtn.addEventListener('click', prevDay);
+
+            // 日期轮播触摸滑动（仅移动端）
+            let dayStartX = 0,
+                dayStartY = 0,
+                dayIsSwiping = false;
+            dayWrapper.addEventListener('touchstart', function (e) {
+                if (isPC()) return;
+                const touch = e.touches[0];
+                dayStartX = touch.clientX;
+                dayStartY = touch.clientY;
+                dayIsSwiping = false;
+            }, { passive: true });
+
+            dayWrapper.addEventListener('touchmove', function (e) {
+                if (isPC()) return;
+                if (!dayStartX) return;
+                const touch = e.touches[0];
+                const deltaX = touch.clientX - dayStartX;
+                const deltaY = touch.clientY - dayStartY;
+                if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 10) {
+                    dayIsSwiping = true;
+                    e.preventDefault();
+                }
+            }, { passive: false });
+
+            dayWrapper.addEventListener('touchend', function (e) {
+                if (isPC()) return;
+                if (!dayStartX) return;
+                const touch = e.changedTouches[0];
+                const deltaX = touch.clientX - dayStartX;
+                if (dayIsSwiping && Math.abs(deltaX) > 50) {
+                    if (deltaX < 0) nextDay();
+                    else prevDay();
+                }
+                dayStartX = 0;
+                dayStartY = 0;
+                dayIsSwiping = false;
+            }, { passive: true });
+
+            // 窗口尺寸变化时，PC端重置样式
+            window.addEventListener('resize', function () {
+                if (isPC()) {
+                    daySlides.style.transform = 'none';
+                    daySlides.style.transition = 'none';
+                } else {
+                    // 移动端恢复当前轮播位置
+                    daySlides.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                    goToDay(dayCurrent);
+                }
+            });
+
+            // ---------- 内部媒体轮播 ----------
+            document.querySelectorAll('.carousel-wrapper').forEach(wrapper => {
+                const slides = wrapper.querySelector('.carousel-slides');
+                const prevBtn = wrapper.querySelector('.carousel-btn.prev');
+                const nextBtn = wrapper.querySelector('.carousel-btn.next');
+                const dotsContainer = wrapper.querySelector('.carousel-dots');
+                const slideItems = slides.querySelectorAll('.carousel-slide');
+                let currentIndex = 0;
+                const total = slideItems.length;
+
+                dotsContainer.innerHTML = '';
+                for (let i = 0; i < total; i++) {
+                    const dot = document.createElement('span');
+                    dot.dataset.index = i;
+                    if (i === 0) dot.classList.add('active');
+                    dot.addEventListener('click', function () {
+                        goTo(parseInt(this.dataset.index));
+                    });
+                    dotsContainer.appendChild(dot);
+                }
+                const dots = dotsContainer.querySelectorAll('span');
+
+                function goTo(index) {
+                    if (index < 0) index = total - 1;
+                    if (index >= total) index = 0;
+                    currentIndex = index;
+                    slides.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+                    dots.forEach((d, i) => {
+                        d.classList.toggle('active', i === currentIndex);
+                    });
+                }
+
+                function next() { goTo(currentIndex + 1); }
+                function prev() { goTo(currentIndex - 1); }
+
+                nextBtn.addEventListener('click', next);
+                prevBtn.addEventListener('click', prev);
+
+                // 内部轮播触摸
+                let startX = 0,
+                    startY = 0,
+                    isSwiping = false;
+                wrapper.addEventListener('touchstart', function (e) {
+                    const touch = e.touches[0];
+                    startX = touch.clientX;
+                    startY = touch.clientY;
+                    isSwiping = false;
+                    e.stopPropagation();
+                }, { passive: true });
+
+                wrapper.addEventListener('touchmove', function (e) {
+                    if (!startX) return;
+                    const touch = e.touches[0];
+                    const deltaX = touch.clientX - startX;
+                    const deltaY = touch.clientY - startY;
+                    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 10) {
+                        isSwiping = true;
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+                }, { passive: false });
+
+                wrapper.addEventListener('touchend', function (e) {
+                    if (!startX) return;
+                    const touch = e.changedTouches[0];
+                    const deltaX = touch.clientX - startX;
+                    if (isSwiping && Math.abs(deltaX) > 50) {
+                        if (deltaX < 0) next();
+                        else prev();
+                        e.stopPropagation();
+                    }
+                    startX = 0;
+                    startY = 0;
+                    isSwiping = false;
+                }, { passive: true });
+            });
+
+            // ---------- 图片弹窗（支持左右切换） ----------
+            const imageModal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalLabel = document.getElementById('modalLabel');
+            const modalCounter = document.getElementById('modalCounter');
+            const closeImageBtn = document.getElementById('closeImageModal');
+            const modalPrev = document.getElementById('modalPrev');
+            const modalNext = document.getElementById('modalNext');
+
+            let currentGallery = []; // 当前图片列表 [{ src, label }]
+            let currentGalleryIndex = 0;
+
+            // 点击图片打开弹窗
+            document.querySelectorAll('.carousel-slide:not(.video-slide) img').forEach(img => {
+                img.parentElement.addEventListener('click', function (e) {
+                    const wrapper = this.closest('.carousel-wrapper');
+                    // 收集该轮播中所有非视频的图片
+                    const slides = wrapper.querySelectorAll('.carousel-slide:not(.video-slide)');
+                    const gallery = [];
+                    slides.forEach(slide => {
+                        const imgEl = slide.querySelector('img');
+                        if (imgEl && imgEl.src) {
+                            const labelEl = slide.querySelector('.slide-label');
+                            gallery.push({
+                                src: imgEl.src,
+                                label: labelEl ? labelEl.textContent.trim() : ''
+                            });
+                        }
+                    });
+                    if (gallery.length === 0) return;
+                    // 找到当前点击的图片在 gallery 中的索引
+                    const clickedSrc = img.src;
+                    let idx = gallery.findIndex(item => item.src === clickedSrc);
+                    if (idx === -1) idx = 0;
+
+                    currentGallery = gallery;
+                    currentGalleryIndex = idx;
+                    openImageModal();
+                });
+            });
+
+            function openImageModal() {
+                if (currentGallery.length === 0) return;
+                const item = currentGallery[currentGalleryIndex];
+                modalImage.src = item.src;
+                modalLabel.textContent = item.label || '';
+                modalCounter.textContent = (currentGalleryIndex + 1) + ' / ' + currentGallery.length;
+                imageModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeImageModal() {
+                imageModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            function prevImage() {
+                if (currentGallery.length <= 1) return;
+                currentGalleryIndex = (currentGalleryIndex - 1 + currentGallery.length) % currentGallery.length;
+                const item = currentGallery[currentGalleryIndex];
+                modalImage.src = item.src;
+                modalLabel.textContent = item.label || '';
+                modalCounter.textContent = (currentGalleryIndex + 1) + ' / ' + currentGallery.length;
+            }
+
+            function nextImage() {
+                if (currentGallery.length <= 1) return;
+                currentGalleryIndex = (currentGalleryIndex + 1) % currentGallery.length;
+                const item = currentGallery[currentGalleryIndex];
+                modalImage.src = item.src;
+                modalLabel.textContent = item.label || '';
+                modalCounter.textContent = (currentGalleryIndex + 1) + ' / ' + currentGallery.length;
+            }
+
+            // 弹窗事件绑定
+            closeImageBtn.addEventListener('click', closeImageModal);
+            modalPrev.addEventListener('click', prevImage);
+            modalNext.addEventListener('click', nextImage);
+
+            // 点击背景关闭
+            imageModal.addEventListener('click', function (e) {
+                if (e.target === this) closeImageModal();
+            });
+
+            // 键盘事件
+            document.addEventListener('keydown', function (e) {
+                if (!imageModal.classList.contains('active')) return;
+                if (e.key === 'Escape') closeImageModal();
+                if (e.key === 'ArrowLeft') prevImage();
+                if (e.key === 'ArrowRight') nextImage();
+            });
+
+            // 触摸滑动切换（弹窗内）
+            let modalTouchStartX = 0;
+            let modalTouchStartY = 0;
+            imageModal.addEventListener('touchstart', function (e) {
+                const touch = e.touches[0];
+                modalTouchStartX = touch.clientX;
+                modalTouchStartY = touch.clientY;
+            }, { passive: true });
+
+            imageModal.addEventListener('touchend', function (e) {
+                if (!modalTouchStartX) return;
+                const touch = e.changedTouches[0];
+                const deltaX = touch.clientX - modalTouchStartX;
+                const deltaY = touch.clientY - modalTouchStartY;
+                if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 40) {
+                    if (deltaX < 0) nextImage();
+                    else prevImage();
+                }
+                modalTouchStartX = 0;
+                modalTouchStartY = 0;
+            }, { passive: true });
+
+            // ---------- 视频弹窗 ----------
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('videoIframe');
+            const closeModal = document.getElementById('closeModal');
+
+            document.querySelectorAll('.video-slide').forEach(slide => {
+                slide.addEventListener('click', function (e) {
+                    const url = this.dataset.video;
+                    if (url) {
+                        iframe.src = url;
+                        modal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+
+            function closeVideoModal() {
+                modal.classList.remove('active');
+                iframe.src = '';
+                document.body.style.overflow = '';
+            }
+
+            closeModal.addEventListener('click', closeVideoModal);
+            modal.addEventListener('click', function (e) {
+                if (e.target === this) closeVideoModal();
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) closeVideoModal();
+            });
+
+            // ---------- 初始化：PC端默认显示所有，移动端从Day1开始 ----------
+            if (isPC()) {
+                daySlides.style.transform = 'none';
+                daySlides.style.transition = 'none';
+            } else {
+                goToDay(0);
+            }
+
+        })();
+    </script>
+
+
+
+
+ 
+
+
+</body>
+
+</html>
